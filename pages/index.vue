@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <b-container fluid>
     <div>
       <Logo />
       <h1 class="title">static_template</h1>
@@ -22,7 +22,7 @@
         </a>
       </div>
     </div>
-  </div>
+</b-container>
 </template>
 
 <script lang="ts">
