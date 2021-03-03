@@ -6,7 +6,7 @@
           <!-- <div class="mx-auto" href="#"> -->
           <b-img
             id="shandon-logo"
-            src="./Shandon_logo.png"
+            src="~/assets/Shandon_logo.png"
             fluid
             class="justify-content-center mx-auto my-auto"
           ></b-img>
@@ -36,6 +36,7 @@
       <div>
         <b-img
           fluid
+          class="image-one"
           src="https://static.wixstatic.com/media/9e3e03_4bb7950793b54f369675ce6f83605e80~mv2.png/v1/fill/w_2543,h_527,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_4bb7950793b54f369675ce6f83605e80~mv2.webp"
           style="opacity: 55%"
         ></b-img>
@@ -48,7 +49,7 @@
         <b-img
           height="15"
           class="mx-auto my-auto"
-          src="./most_recent_message.png"
+          src="~/assets/most_recent_message.png"
         ></b-img>
       </div>
 
@@ -67,7 +68,7 @@
         <b-img
           height="15"
           class="mx-auto my-auto"
-          src="./shandon_essentials.png"
+          src="~/assets/shandon_essentials.png"
         ></b-img>
       </div>
 
@@ -124,49 +125,35 @@
             </p>
           </div>
         </div>
-        <b-row>
-          <b-col>
-            <b-img fluid-grow :src="imgSrc[selectedIcon - 1]"></b-img>
-          </b-col>
-        </b-row>
-        <div>
-          <b-img fluid style="opacity: 55%" :src="imgSrcTwo"></b-img>
+        <div id="rotatingImg1Div" v-show="selectedIcon === 1">
+          <b-img
+            id="rotatingImg1"
+            fluid
+            src="https://static.wixstatic.com/media/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.jpg/v1/fill/w_2543,h_544,al_c,q_85,usm_0.66_1.00_0.01/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.webp"
+          ></b-img>
         </div>
-        <!-- <div v-show="selectedIcon === 2">
-        <b-img
-          fluid
-          src="https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp"
-        ></b-img>
+        <div id="rotatingImg2Div" v-show="selectedIcon === 2">
+          <b-img
+            id="rotatingImg2"
+            fluid
+            src="https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp"
+          ></b-img>
+        </div>
+        <div id="rotatingImg3Div" v-show="selectedIcon === 3">
+          <b-img
+            id="rotatingImg3"
+            fluid
+            src="https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp"
+          ></b-img>
+        </div>
+        <div>
+          <b-img
+            fluid
+            style="opacity: 55%"
+            src="https://static.wixstatic.com/media/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.jpg/v1/fill/w_1920,h_309,al_c,q_85/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.webp"
+          ></b-img>
+        </div>
       </div>
-      <div v-show="selectedIcon === 3">
-        <b-img
-          fluid
-          src="https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp"
-        ></b-img>
-      </div> -->
-      </div>
-
-      <!-- <div>
-      <h1 class="title">test</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div> -->
     </div>
   </b-container>
 </template>
@@ -188,68 +175,15 @@ export default Vue.extend({
         'https://static.wixstatic.com/media/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.jpg/v1/fill/w_1920,h_309,al_c,q_85/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.webp',
     }
   },
-  methods: {
-    resize() {
-      if (window.innerWidth < 960) {
-        this.imgSrc = [
-          'https://static.wixstatic.com/media/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.jpg/v1/fill/w_980,h_544,al_c,q_85,usm_0.66_1.00_0.01/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.webp',
-          'https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_980,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp',
-          'https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_980,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp',
-        ]
-        this.imgSrcTwo =
-          'https://static.wixstatic.com/media/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.jpg/v1/fill/w_980,h_309,al_c,q_85/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.webp'
-      } else {
-        this.imgSrc = [
-          'https://static.wixstatic.com/media/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.jpg/v1/fill/w_2543,h_544,al_c,q_85,usm_0.66_1.00_0.01/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.webp',
-          'https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp',
-          'https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp',
-        ]
-        this.imgSrcTwo =
-          'https://static.wixstatic.com/media/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.jpg/v1/fill/w_2543,h_309,al_c,q_85/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.webp'
-      }
-    },
-  },
+  methods: {},
 
-  created() {
-    window.addEventListener('load', () => {
-      this.resize()
-    })
-  },
-  mounted: () => {
-    // this.resize();
-  },
-  //   computed: {
-  //     imgSrc: function () {
-  //       if (!window)
-  //         return [
-  //           'https://static.wixstatic.com/media/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.jpg/v1/fill/w_2543,h_544,al_c,q_85,usm_0.66_1.00_0.01/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.webp',
-  //           'https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp',
-  //           'https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp',
-  //         ]
-  //       return window?.innerWidth < 960
-  //         ? [
-  //             'https://static.wixstatic.com/media/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.jpg/v1/fill/w_980,h_544,al_c,q_85,usm_0.66_1.00_0.01/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.webp',
-  //             'https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_980,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp',
-  //             'https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_980,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp',
-  //           ]
-  //         : [
-  //             'https://static.wixstatic.com/media/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.jpg/v1/fill/w_2543,h_544,al_c,q_85,usm_0.66_1.00_0.01/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.webp',
-  //             'https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp',
-  //             'https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_2543,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp',
-  //           ]
-  //     },
-  //     imgSrcTwo: function () {
-  //       if (!window)
-  //         return 'https://static.wixstatic.com/media/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.jpg/v1/fill/w_2543,h_309,al_c,q_85/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.webp'
-  //       return window.innerWidth < 960
-  //         ? 'https://static.wixstatic.com/media/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.jpg/v1/fill/w_980,h_309,al_c,q_85/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.webp'
-  //         : 'https://static.wixstatic.com/media/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.jpg/v1/fill/w_2543,h_309,al_c,q_85/9e3e03_b8f4e20c76cc4280bd2c8bd7ca7ece14~mv2.webp'
-  //     },
-  //   },
+  created() {},
+  mounted: () => {},
+  computed: {},
 })
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -299,7 +233,25 @@ export default Vue.extend({
   overflow-x: auto;
   white-space: nowrap;
 }
+
 .testimonial-group > .row > .col-4 {
   display: inline-block;
+}
+
+@media screen and (max-width: 960px) {
+  #rotatingImg1,
+  #rotatingImg2,
+  #rotatingImg3 {
+    display: none;
+  }
+  #rotatingImg1Div::before {
+    content: url('https://static.wixstatic.com/media/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.jpg/v1/fill/w_980,h_544,al_c,q_85,usm_0.66_1.00_0.01/9e3e03_6318cc723de24610915c5f8e89a7500a~mv2.webp');
+  }
+  #rotatingImg2Div::before {
+    content: url('https://static.wixstatic.com/media/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.png/v1/fill/w_980,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_cc728cf70e834828af156e6afab30f51~mv2.webp');
+  }
+  #rotatingImg3Div::before {
+    content: url('https://static.wixstatic.com/media/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.png/v1/fill/w_980,h_544,al_c,q_90,usm_0.66_1.00_0.01/9e3e03_49fa7ecfa5594c30b291b685823f76b3~mv2.webp');
+  }
 }
 </style>
