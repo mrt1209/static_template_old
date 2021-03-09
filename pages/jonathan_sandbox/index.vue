@@ -6,7 +6,7 @@
           <!-- <div class="mx-auto" href="#"> -->
           <b-img
             id="shandon-logo"
-            src="~/assets/Shandon_logo.png"
+            src="/Shandon_logo.png"
             fluid
             class="justify-content-center mx-auto my-auto"
           ></b-img>
@@ -49,7 +49,7 @@
         <b-img
           height="15"
           class="mx-auto my-auto"
-          src="~/assets/most_recent_message.png"
+          src="/most_recent_message.png"
         ></b-img>
       </div>
 
@@ -68,7 +68,7 @@
         <b-img
           height="15"
           class="mx-auto my-auto"
-          src="~/assets/shandon_essentials.png"
+          src="/shandon_essentials.png"
         ></b-img>
       </div>
 
